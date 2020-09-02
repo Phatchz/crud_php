@@ -4,6 +4,7 @@
     if (isset($_REQUEST['btn_insert'])) {
         $firstname = $_REQUEST['txt_firstname'];
         $lastname = $_REQUEST['txt_lastname'];
+        $nickname = $_REQUEST['txt_nickname'];
         $corsename = $_REQUEST['txt_corsename'];
         $starttime = $_REQUEST['txt_starttime'];
 
@@ -11,6 +12,8 @@
             $errormsg = "Please enter Firstname";
         } else if (empty($lastname)) {
             $errormsg = "Please enter Lastname";
+        } else if (empty($nickname)) {
+            $errormsg = "Please enter Nickname";
         } else if (empty($corsename)) {
             $errormsg = "Please enter Corsename";
         } else if (empty($starttime)) {
@@ -21,6 +24,7 @@
                     $insert_stmt = $db->prepare("INSERT INTO tbl_person(firstname, lastname, corsename,starttime) VALUE (:fname, :lname, :cname, :stime)");
                     $insert_stmt->bindParam(':fname', $firstname);
                     $insert_stmt->bindParam(':lname', $lastname);
+                    $insert_stmt->bindParam(':nname', $nickname);
                     $insert_stmt->bindParam(':cname', $corsename);
                     $insert_stmt->bindParam(':stime', $starttime);
 
@@ -81,6 +85,14 @@
                     <label for="lastname" class="col-sm-3 control-lebel">Lastname</label>
                     <div class="col-sm-9">
                         <input type="text" name="txt_lastname" class="form-control" placeholder="Enter Lastname...">
+                    </div>
+                </div>
+            </div>
+            <div class="form-grop text-center">
+                <div class="row mb-3">
+                    <label for="nickname" class="col-sm-3 control-lebel">Nickname</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="txt_nickname" class="form-control" placeholder="Enter Nickname...">
                     </div>
                 </div>
             </div>

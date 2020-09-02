@@ -17,6 +17,7 @@
     if (isset($_REQUEST['btn_update'])) {
         $firstname_up = $_REQUEST['txt_firstname'];
         $lastname_up = $_REQUEST['txt_lastname'];
+        $nickname_up = $_REQUEST['txt_nickname'];
         $corsename_up = $_REQUEST['txt_corsename'];
         $starttime_up = $_REQUEST['txt_starttime'];
 
@@ -24,6 +25,8 @@
             $errorMsg = "Please Enter Firstname";
         }else if (empty($lastname_up)) {
             $errorMsg = "Please Enter Lastname";
+        }else if (empty($nickname_up)) {
+            $errorMsg = "Please Enter Nickname";
         }else if (empty($corsename_up)) {
             $errorMsg = "Please Enter CorseName";
         }else if (empty($starttime_up)) {
@@ -34,6 +37,7 @@
                     $update_stmt = $db->prepare("UPDATE tbl_person SET firstname = :fname_up, lastname = :lname_up, corsename_up = :cname, starttime = :stime_up WHERE id = :id");
                     $update_stmt->bindParam(':fname_up', $firstname_up);
                     $update_stmt->bindParam(':lname_up', $lastname_up);
+                    $update_stmt->bindParam(':nname_up', $nickname_up);
                     $update_stmt->bindParam(':cname_up', $corsename_up);
                     $update_stmt->bindParam(':stime_up', $starttime_up);
                     $update_stmt->bindParam(':id', $id);
@@ -97,6 +101,14 @@
                     <label for="lastname" class="col-sm-3 control-lebel">Lastname</label>
                     <div class="col-sm-9">
                         <input type="text" name="txt_lastname" class="form-control" value="<?php echo $lastname; ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="form-grop text-center">
+                <div class="row pt-3">
+                    <label for="nickname" class="col-sm-3 control-lebel">Nickname</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="txt_nickname" class="form-control" value="<?php echo $nickname; ?>">
                     </div>
                 </div>
             </div>

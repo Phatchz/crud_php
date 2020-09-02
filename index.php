@@ -40,6 +40,7 @@
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Nick Name</th>
                 <th>Corse Name</th>
                 <th>Date/Time</th>
                 <th>Edit Name</th>
@@ -60,6 +61,7 @@
                         <td><?php echo $row["id"]; ?></td>
                         <td><?php echo $row["firstname"]; ?></td>
                         <td><?php echo $row["lastname"]; ?></td>
+                        <td><?php echo $row["nickname"]; ?></td>
                         <td><?php echo $row["corsename"]; ?></td>
                         <td><?php echo $row["starttime"]; ?></td>
                         <td><a href="edit.php?update_id=<?php echo $row["id"]; ?>"class="btn btn-warning">Edit</a></td>
